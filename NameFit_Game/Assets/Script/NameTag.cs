@@ -8,9 +8,11 @@ public class NameTag : MonoBehaviour
 {
 
     RectTransform rectTransform;
+    BoxCollider2D _bc;
 
     private void Awake()
     {
+        _bc = GetComponent<BoxCollider2D>();
         rectTransform = GetComponent<RectTransform>();
     }
 

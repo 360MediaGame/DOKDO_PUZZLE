@@ -41,15 +41,17 @@ public class Game_Manager : MonoBehaviour
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
 
+        GameObject Arr = Instantiate(Arrow, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        RectTransform Arr_rt = Arr.GetComponent<RectTransform>();
+        Arr_rt.localPosition = new Vector3(295, 184, 0);
+
         GameObject NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         RectTransform NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(809, -34, 0);
         TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         nameText.text = "°­Ä¡";
 
-        GameObject Arr = Instantiate(Arrow, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
-        RectTransform Arr_rt = Arr.GetComponent<RectTransform>();
-        Arr_rt.localPosition = new Vector3(295, 184, 0);
+        
 
     }
 
