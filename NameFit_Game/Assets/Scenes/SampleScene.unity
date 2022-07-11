@@ -535,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428032404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -374, y: 168, z: -9.047035}
+  m_LocalPosition: {x: -623, y: 286, z: -9.047035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -560,7 +560,7 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 3509255921736184251, guid: bb6a315b7b63f0b4c91aac813740ed02, type: 2}
     value: {fileID: 1757414462}
-  - key: {fileID: 1203748474692181574, guid: bb6a315b7b63f0b4c91aac813740ed02, type: 2}
+  - key: {fileID: 3770702952540148852, guid: bb6a315b7b63f0b4c91aac813740ed02, type: 2}
     value: {fileID: 1757414466}
   m_ExposedReferences:
     m_References: []
@@ -1368,7 +1368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1127, y: -207}
+  m_AnchoredPosition: {x: 1112, y: -366}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757414464

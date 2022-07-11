@@ -54,20 +54,20 @@ public class Game_Manager : MonoBehaviour
         GameObject GC = Instantiate(Gangchi_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Gangchi";
         RectTransform GC_rt = GC.GetComponent<RectTransform>();
-        GC_rt.localPosition = new Vector3(-250, 257, 0);
+        GC_rt.localPosition = new Vector3(-265, 100, 0);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
 
         GameObject Arr = Instantiate(Arrow, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         RectTransform Arr_rt = Arr.GetComponent<RectTransform>();
-        Arr_rt.localPosition = new Vector3(295, 184, 0);
+        Arr_rt.localPosition = new Vector3(295, 27, 0);
 
         // IDLE Scene에선 강치 하나 생성
         GameObject NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "GangChiNameTag";
         NT.tag = "Gangchi";
         RectTransform NT_rt = NT.GetComponent<RectTransform>();
-        NT_rt.localPosition = new Vector3(809, -34, 0);
+        NT_rt.localPosition = new Vector3(809, -191, 0);
         TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         nameText.text = "강치";
 

@@ -1076,9 +1076,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a10298c686b8740a97c0c14dc648e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gangchi_GRAY: {fileID: 5540104451296625376, guid: 2772dfd13e5aae448a7f69373ef40e05, type: 3}
   GangChi_OBJ: {fileID: 8436543525801754044, guid: 2bdecc4f4f829e0428317224af0b86a9, type: 3}
-  NameTag: {fileID: 3797761462820267209, guid: 8efd0113423d7354dabcd2d69b86ecc8, type: 3}
+  Blackbird_GRAY: {fileID: 3897112078948415083, guid: 1bf51c4562e689f47974532962bcb502, type: 3}
+  Blackdom_GRAY: {fileID: 729017216251802169, guid: 74e50502c94c5af4782810527d6ee931, type: 3}
+  Bluedom_GRAY: {fileID: 1243859773087331146, guid: c16a754b05326424f817524679f8347e, type: 3}
+  Bluehwang_GRAY: {fileID: 3714373396439953834, guid: a3d543f3432b96a4dbeffde7c72c2afd, type: 3}
+  Ddackbird_GRAY: {fileID: 9172955254395072517, guid: 0557a7182b296c54a82a68d9f7d3d4fd, type: 3}
+  Hwang_GRAY: {fileID: 5002368446272703385, guid: 21650594796cab5438176c23c5084d1c, type: 3}
+  Moonmeat_GRAY: {fileID: 6486278192518943889, guid: 6c67a34ec0a53154eb9b3a40395938a3, type: 3}
+  Seagull_GRAY: {fileID: 7890568320019136150, guid: 89cbfb93d4e3a9543a39da364ace5d6f, type: 3}
+  SO_GRAY: {fileID: 3952487981257759780, guid: 306ece6ad25354d4faca0dc746a7a7eb, type: 3}
+  NameTag: {fileID: 3797761462820267209, guid: 3ef6058e19fd16d40abd3b3bd79be432, type: 3}
   Gangchi_script_image: {fileID: 6300440901068926447, guid: ed3101dc90fb1e842ac496c7a71700f6, type: 3}
 --- !u!1 &781443027
 GameObject:
@@ -1327,7 +1335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f3ff015334892db49857edbca6f9c8a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

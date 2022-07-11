@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6072777693117236942}
   - component: {fileID: 3316556461691015850}
   - component: {fileID: -3692132946417900035}
-  - component: {fileID: 1565826917648745119}
   - component: {fileID: -8612269977234172}
+  - component: {fileID: -9091053425273180731}
   m_Layer: 5
-  m_Name: TextImage
+  m_Name: Stage_TexImage
   m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,20 +106,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 170, y: 60}
   m_EdgeRadius: 0
---- !u!114 &1565826917648745119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797761462820267209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1880315192c4974a96b11c8bcfe8d78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Effect: {fileID: 5461866448617344143, guid: 420841f3413062c4cbd5d1b7c30c870b, type: 3}
-  Gangchi_ani: {fileID: 8436543525801754044, guid: 2bdecc4f4f829e0428317224af0b86a9, type: 3}
 --- !u!50 &-8612269977234172
 Rigidbody2D:
   serializedVersion: 4
@@ -141,6 +127,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-9091053425273180731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797761462820267209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922c6d68f6fcf4a4bab6c27a3f9d33be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Effect: {fileID: 5461866448617344143, guid: 420841f3413062c4cbd5d1b7c30c870b, type: 3}
+  BlackBird_ani: {fileID: 7620589896938096021, guid: 7f11822993443224594c4c42a0843dfe, type: 3}
+  BlackDom_ani: {fileID: 443606820470437139, guid: ece9aec46ca4f1f4a8d5582fce16a60f, type: 3}
+  BlueDom_ani: {fileID: 5087866499188788433, guid: fb988760de935954d986764cd6b67ad1, type: 3}
+  BlueHwang_ani: {fileID: 1151383547105610299, guid: 8977763559778964e9e1c6ff6dc189aa, type: 3}
+  DdackBird_ani: {fileID: 3393555935771089454, guid: c989b14c33e7e064f9391c1e960569ce, type: 3}
+  Hwang_ani: {fileID: 8667790836350547436, guid: 014a87851739be54097a83d7ed29ea9c, type: 3}
+  MoonMeat_ani: {fileID: 2816128429279107728, guid: 3f03e8416ed21424c94a4f688cb84b2c, type: 3}
+  Seagull_ani: {fileID: 101868280554281578, guid: 5d4e361804e79e14eb3321cd2f9ff18f, type: 3}
+  SO_ani: {fileID: 5719500544762060906, guid: 50575db1eff816242a32ba9a33550a4d, type: 3}
 --- !u!1 &5909765415458473453
 GameObject:
   m_ObjectHideFlags: 0
