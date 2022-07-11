@@ -10,6 +10,9 @@ public class NameTag : MonoBehaviour
     RectTransform rectTransform;
     BoxCollider2D _bc;
 
+    private bool _dragend;
+    private Vector2 _start_pos;
+
     private void Awake()
     {
         _bc = GetComponent<BoxCollider2D>();
@@ -18,17 +21,25 @@ public class NameTag : MonoBehaviour
 
 
     public void OnBeginDrag(PointerEventData eventData)
-    {
+    { 
+        _start_pos.x = transform.position.x;
+        _start_pos.y = transform.position.y;
+
+        _dragend = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (gameObject.tag == "FixNameTag")
+            return;
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.position = _start_pos;
 
+       _dragend = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -39,5 +50,12 @@ public class NameTag : MonoBehaviour
     public void OnDrop(PointerEventData eventData)
     {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // 아마 안쓸듯?
+        Debug.Log(other.gameObject.tag);
+        Debug.Log(_dragend);
     }
 }

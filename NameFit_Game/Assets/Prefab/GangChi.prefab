@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5005075661626181706}
   m_Layer: 5
   m_Name: GangChi
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98553395722a0742bfbf96f143eca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameTagPrefab: {fileID: 3797761462820267209, guid: 8efd0113423d7354dabcd2d69b86ecc8, type: 3}
+  _GangchiScript_image: {fileID: 6300440901068926447, guid: ed3101dc90fb1e842ac496c7a71700f6, type: 3}
 --- !u!61 &-2205481982571340779
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NamgTag
+  - Animal
+  - Undefined
+  - Gangchi
+  - FixNameTag
+  - IdleBackGround
   layers:
   - Default
   - TransparentFX
