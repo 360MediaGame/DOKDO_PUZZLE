@@ -9,6 +9,15 @@ TagManager:
   - Gangchi
   - FixNameTag
   - IdleBackGround
+  - BlackBird
+  - BlackDom
+  - BlueDom
+  - BlueHwang
+  - DdackBird
+  - Hwang
+  - MoonMeat
+  - Seagull
+  - SO
   layers:
   - Default
   - TransparentFX

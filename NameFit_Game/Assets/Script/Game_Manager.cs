@@ -15,6 +15,7 @@ public class Game_Manager : MonoBehaviour
 
     public STATE GAME_STATE;
 
+    public GameObject Gangchi_GRAY;
     public GameObject GangChi_OBJ;
     public GameObject Arrow;
     public GameObject NameTag;
@@ -50,7 +51,7 @@ public class Game_Manager : MonoBehaviour
 
     void Idle_Scene_Init()
     {
-        GameObject GC = Instantiate(GangChi_OBJ, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        GameObject GC = Instantiate(Gangchi_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Gangchi";
         RectTransform GC_rt = GC.GetComponent<RectTransform>();
         GC_rt.localPosition = new Vector3(-250, 257, 0);
@@ -98,6 +99,6 @@ public class Game_Manager : MonoBehaviour
             //Debug.Log(Idle_CurTime);
         }
         if (GAME_STATE != STATE.STATE_IDLE)
-        IdleSceneBackGround.SetActive(false);
+            IdleSceneBackGround.SetActive(false);
     }
 }

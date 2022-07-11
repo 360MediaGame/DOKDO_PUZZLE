@@ -25,6 +25,7 @@ public class NameTag : MonoBehaviour
         _start_pos.x = transform.position.x;
         _start_pos.y = transform.position.y;
 
+        //_bc.enabled = false;
         _dragend = false;
     }
 
@@ -38,8 +39,8 @@ public class NameTag : MonoBehaviour
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.position = _start_pos;
-
-       _dragend = true;
+        //_bc.enabled = true;
+        _dragend = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)

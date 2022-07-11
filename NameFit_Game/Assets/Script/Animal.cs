@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Animal : MonoBehaviour
 {
+    public GameObject GangChi_OBJ;
+
     public GameObject _nameTagPrefab;
+    public GameObject _Effect;
 
     BoxCollider2D _bc;
     Rigidbody2D _rigid;
@@ -35,20 +39,39 @@ public class Animal : MonoBehaviour
 
         if (gameObject.name == other.tag)
         {
-            GameObject NT = Instantiate(_nameTagPrefab, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
-            NT.tag = "FixNameTag";
-            RectTransform NT_rt = NT.GetComponent<RectTransform>();
-            NT_rt.localPosition = new Vector3(ani_rt.localPosition.x, ani_rt.localPosition.y - 120, 0);
-            TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-            nameText.text = gameObject.name;
+            if (gameObject.name == "Gangchi")
+            {
+                GameObject NT = Instantiate(_nameTagPrefab, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                NT.tag = "FixNameTag";
+                RectTransform NT_rt = NT.GetComponent<RectTransform>();
+                NT_rt.localPosition = new Vector3(ani_rt.localPosition.x, ani_rt.localPosition.y - 120, 0);
+                TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+                nameText.text = "강치";
+
+                GameObject ani_obj = Instantiate(GangChi_OBJ, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                RectTransform ani_obj_rt = ani_obj.GetComponent<RectTransform>();
+                ani_obj_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+                ani_obj_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+                ani_obj_rt.localPosition = new Vector3(ani_rt.localPosition.x, ani_rt.localPosition.y, 0);
+            }
+            
 
             myScript.Instance.SetText("훌륭해! 다음 독도 친구들도 맞추어 볼까?");
 
+            GameObject Effect = Instantiate(_Effect, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform Effect_rt = Effect.GetComponent<RectTransform>();
+            Effect_rt.localPosition = new Vector3(ani_rt.localPosition.x, ani_rt.localPosition.y, 0);
+
+            Invoke("EnterStageScene", 3f);
+
             Destroy(other.gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        else
-        {
-            Debug.Log("dd");
-        }
+    }
+
+    private void EnterStageScene()
+    {
+        SceneManager.LoadScene("STAGE_SCENE");
     }
 }
