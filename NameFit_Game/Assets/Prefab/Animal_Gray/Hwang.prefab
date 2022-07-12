@@ -91,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98553395722a0742bfbf96f143eca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nameTagPrefab: {fileID: 3797761462820267209, guid: 8efd0113423d7354dabcd2d69b86ecc8, type: 3}
-  _Effect: {fileID: 5461866448617344143, guid: 420841f3413062c4cbd5d1b7c30c870b, type: 3}
 --- !u!61 &8151733944192949614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +115,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 80, y: 50}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!50 &3084452493397309133
 Rigidbody2D:

@@ -18,6 +18,7 @@ TagManager:
   - MoonMeat
   - Seagull
   - SO
+  - ClearWindow
   layers:
   - Default
   - TransparentFX

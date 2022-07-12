@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class Stage_NameTag : MonoBehaviour
     , IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public static int _gAnswerCnt = 0;
+
     public GameObject _Effect;
 
     public GameObject BlackBird_ani;
@@ -20,6 +22,8 @@ public class Stage_NameTag : MonoBehaviour
     public GameObject MoonMeat_ani;
     public GameObject Seagull_ani;
     public GameObject SO_ani;
+
+    public GameObject ClearWindow;
 
     RectTransform rectTransform;
     BoxCollider2D _bc;
@@ -34,7 +38,6 @@ public class Stage_NameTag : MonoBehaviour
         _bc = GetComponent<BoxCollider2D>();
         rectTransform = GetComponent<RectTransform>();
     }
-
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -222,15 +225,28 @@ public class Stage_NameTag : MonoBehaviour
 
 
             myScript.Instance.SetText("훌륭해! 다음 독도 친구들도 맞추어 볼까?");
+            myScript.Instance.SetWordTerm(false);
+            _gAnswerCnt++;
+            Debug.Log(_gAnswerCnt);
 
             // 이펙트
             GameObject Effect = Instantiate(_Effect, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
             RectTransform Effect_rt = Effect.GetComponent<RectTransform>();
             Effect_rt.localPosition = new Vector3(_target_pos.x, _target_pos.y, 0);
 
-            //Invoke("EnterStageScene", 3f);
+            if (_gAnswerCnt >= 9)
+            {
+                myScript.Instance.SetText("정말 대단해! 열심히 공부했구나?");
+                myScript.Instance.SetImpotantWord(0);
+                Invoke("EndStageScene", 3f);
+            }
 
             gameObject.SetActive(false);
+        }
+        else
+        {
+            myScript.Instance.SetText("그 친구의 이름이 아니야, 다시 도전해보자!");
+            myScript.Instance.SetWordTerm(false);
         }
     }
 
@@ -256,8 +272,12 @@ public class Stage_NameTag : MonoBehaviour
             _isAnswer = false;
     }
 
-    private void EnterStageScene()
+    private void EndStageScene()
     {
-        SceneManager.LoadScene("STAGE_SCENE");
+        // 팝업창 띄우기
+        //Debug.Log(ClearWindow.Instance.gameObject.name); //SetActive(true);
+        GameObject NT = Instantiate(ClearWindow, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        RectTransform NT_rt = NT.GetComponent<RectTransform>();
+        NT_rt.localPosition = new Vector3(0, 0, 0);
     }
 }

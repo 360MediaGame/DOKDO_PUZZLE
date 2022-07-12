@@ -149,6 +149,7 @@ MonoBehaviour:
   MoonMeat_ani: {fileID: 2816128429279107728, guid: 3f03e8416ed21424c94a4f688cb84b2c, type: 3}
   Seagull_ani: {fileID: 101868280554281578, guid: 5d4e361804e79e14eb3321cd2f9ff18f, type: 3}
   SO_ani: {fileID: 5719500544762060906, guid: 50575db1eff816242a32ba9a33550a4d, type: 3}
+  ClearWindow: {fileID: 615996414449767010, guid: 158a172bd7e531c4ca37f6a2b952494f, type: 3}
 --- !u!1 &5909765415458473453
 GameObject:
   m_ObjectHideFlags: 0

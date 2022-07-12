@@ -45,7 +45,7 @@ public class NameTag : MonoBehaviour
         transform.position = _start_pos;
 
         Debug.Log("isAnswer " + _isAnswer);
-
+      
         if (_isAnswer)
         {
             if (_target.name == "Gangchi")
@@ -77,6 +77,7 @@ public class NameTag : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)

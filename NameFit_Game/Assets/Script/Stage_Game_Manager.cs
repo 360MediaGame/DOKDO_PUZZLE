@@ -6,7 +6,6 @@ using TMPro;
 public class Stage_Game_Manager : MonoBehaviour
 {
     private static Stage_Game_Manager instance;
-
     
     // 강치는 OBJ 나머지는 GRAY
     public GameObject GangChi_OBJ;
@@ -28,6 +27,8 @@ public class Stage_Game_Manager : MonoBehaviour
 
     private Vector2 Script_image_pos;
 
+    private bool _isIdle;
+
     public static Stage_Game_Manager Instance
     {
         get
@@ -40,12 +41,16 @@ public class Stage_Game_Manager : MonoBehaviour
     {
         Script_image_pos = new Vector2(176, 432);
 
-       Stage_Scene_Start();     
+       Stage_Scene_Start();
+
+        _isIdle = true;
+
+        myScript.Instance.SetWordTerm(true);
+        Invoke("CallScript", 0.0f);
     }
 
     void Stage_Scene_Start()
     {
-#pragma region [CreateAnimalImage]
         //// Stage Scene에선 강치 애니메이션 생성
         GameObject GC = Instantiate(GangChi_OBJ, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Gangchi";
@@ -116,14 +121,21 @@ public class Stage_Game_Manager : MonoBehaviour
         GC_rt.localPosition = new Vector3(-615, 390, 0);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
-#pragma endregion [CreateAnimalImage]
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         GameObject NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        NT.tag = "FixNameTag";
+        RectTransform NT_rt = NT.GetComponent<RectTransform>();
+        NT_rt.localPosition = new Vector3(-265, -20, 0);
+        TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        nameText.text = "강치";
+
+        NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "SONameTag";
         NT.tag = "SO";
-        RectTransform NT_rt = NT.GetComponent<RectTransform>();
+        NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(389, 123, 0);
-        TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         nameText.text = "소쩍새";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
@@ -198,26 +210,68 @@ public class Stage_Game_Manager : MonoBehaviour
 
     void Update()
     {
-        //if (GAME_STATE == STATE.STATE_IDLE)
-        //{
-        //    Idle_CurTime += Time.deltaTime;
+        Debug.Log(State_CurTime);
 
-        //    if (Idle_CurTime > 10f)
-        //    {
-        //        if (myScript.Instance.GetText() == IdleScript1)
-        //        {
-        //            myScript.Instance.SetText(IdleScript2);
-        //        }
-        //        else if (myScript.Instance.GetText() == IdleScript2)
-        //        {
-        //            myScript.Instance.SetText(IdleScript1);
-        //        }
-        //        Idle_CurTime = 0f;
-        //    }
+        if (myScript.Instance.GetWordTerm() != _isIdle)
+        {
+            _isIdle = myScript.Instance.GetWordTerm();
+            State_CurTime = 0f;
+        }
+        else
+        {
+            State_CurTime += Time.deltaTime;
+        }
 
-        //    //Debug.Log(Idle_CurTime);
-        //}
-        //if (GAME_STATE != STATE.STATE_IDLE)
-        //IdleSceneBackGround.SetActive(false);
+        if (State_CurTime >= 20f)
+        {
+            myScript.Instance.SetText("너라면 할 수 있어! 계속 도전해봐!");
+            myScript.Instance.SetWordTerm(false);
+            State_CurTime = 0f;
+        }
+
+        if (!myScript.Instance.GetWordTerm())
+        {
+            Invoke("Runagain", 3.0f);
+        }
+    }
+
+    void CallScript()
+    {
+        Invoke("CallScript", 5.0f);
+
+        if (!myScript.Instance.GetWordTerm())
+            return;
+
+        if (myScript.Instance.GetImpotantWord() == 8)
+        {
+            myScript.Instance.SetText("소쩍새는 올빼미의 한 종류야");
+            myScript.Instance.SetImpotantWord(9);
+        }
+        else if (myScript.Instance.GetImpotantWord() == 9)
+        {
+            myScript.Instance.SetText("달고기는 등 지느러미가 길게 뻗어 있어");
+            myScript.Instance.SetImpotantWord(10);
+        }
+        else if(myScript.Instance.GetImpotantWord() == 10)
+        {
+            myScript.Instance.SetText("파랑돔은 지느러미 색이 아름다워");
+            myScript.Instance.SetImpotantWord(11);
+        }
+        else if (myScript.Instance.GetImpotantWord() == 11)
+        {
+            myScript.Instance.SetText("청황베도라치는 몸이 길쭉해");
+            myScript.Instance.SetImpotantWord(12);
+        }
+        else
+        {
+            myScript.Instance.SetText("딱새는 엄청 귀여워!");
+            myScript.Instance.SetImpotantWord(8);
+        }      
+    }
+
+    void Runagain()
+    {
+        myScript.Instance.SetWordTerm(true);
+        //CallScript();
     }
 }
