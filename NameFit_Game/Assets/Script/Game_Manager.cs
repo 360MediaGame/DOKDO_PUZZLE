@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 public enum STATE
@@ -27,10 +28,13 @@ public class Game_Manager : MonoBehaviour
     public string IdleScript2;
 
     private float Idle_CurTime;
+    private float OutLine_CurTime;
     private float State_CurTime;
 
     private Vector2 Script_image_pos;
-
+    GameObject GC;
+    float OutlineWidth;
+    bool isup;
     public static Game_Manager Instance
     {
         get
@@ -42,7 +46,8 @@ public class Game_Manager : MonoBehaviour
     void Start()
     {
         Script_image_pos = new Vector2(176, 432);
-
+        OutlineWidth = 0.000f;
+        isup = true;
         myScript.Instance.SetText(IdleScript1);
 
         GAME_STATE = STATE.STATE_IDLE;
@@ -51,7 +56,7 @@ public class Game_Manager : MonoBehaviour
 
     void Idle_Scene_Init()
     {
-        GameObject GC = Instantiate(Gangchi_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        GC = Instantiate(Gangchi_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Gangchi";
         RectTransform GC_rt = GC.GetComponent<RectTransform>();
         GC_rt.localPosition = new Vector3(-265, 100, 0);
@@ -82,6 +87,7 @@ public class Game_Manager : MonoBehaviour
         if (GAME_STATE == STATE.STATE_IDLE)
         {
             Idle_CurTime += Time.deltaTime;
+            OutLine_CurTime += Time.deltaTime;
 
             if (Idle_CurTime > 10f)
             {
@@ -96,6 +102,23 @@ public class Game_Manager : MonoBehaviour
                 Idle_CurTime = 0f;
             }
 
+            if (OutLine_CurTime > 0.1f)
+            {
+                if (isup)
+                    OutlineWidth += 0.001f;
+                else
+                    OutlineWidth -= 0.001f;
+                OutLine_CurTime = 0.0f;
+            }
+
+            if (OutlineWidth >= 0.017f)
+                isup = false;
+            if (OutlineWidth <= 0.000f)
+                isup = true;
+            
+            Debug.Log(OutlineWidth);
+
+            GC.GetComponent<Image>().material.SetFloat("_OutlineWidth", OutlineWidth);
             //Debug.Log(Idle_CurTime);
         }
         if (GAME_STATE != STATE.STATE_IDLE)

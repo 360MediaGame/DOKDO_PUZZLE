@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Stage_Game_Manager : MonoBehaviour
@@ -133,6 +134,9 @@ public class Stage_Game_Manager : MonoBehaviour
 
         GameObject NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.tag = "FixNameTag";
+
+        NT.GetComponent<Image>().material.SetFloat("_OutlineWidth", 0.017f);
+
         RectTransform NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(-265, -20, 0);
         TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
@@ -286,15 +290,5 @@ public class Stage_Game_Manager : MonoBehaviour
     {
         myScript.Instance.SetWordTerm(true);
         //CallScript();
-    }
-
-    public void SetOutLineInit(bool _oli)
-    {
-        _isoutlineinit = _oli;
-    }
-
-    public bool GetOutLineInit()
-    {
-        return _isoutlineinit;
     }
 }
