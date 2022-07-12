@@ -9,7 +9,7 @@ public class Stage_Game_Manager : MonoBehaviour
 {
     private static Stage_Game_Manager instance;
     
-    // °­Ä¡´Â OBJ ³ª¸ÓÁö´Â GRAY
+    // ï¿½ï¿½Ä¡ï¿½ï¿½ OBJ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ GRAY
     public GameObject GangChi_OBJ;
     public GameObject Blackbird_GRAY;
     public GameObject Blackdom_GRAY;
@@ -37,6 +37,8 @@ public class Stage_Game_Manager : MonoBehaviour
 
     private bool _isoutlineinit;
 
+    public int _gAnswerCnt = 0;
+
     public static Stage_Game_Manager Instance
     {
         get
@@ -49,7 +51,7 @@ public class Stage_Game_Manager : MonoBehaviour
     {
         Script_image_pos = new Vector2(176, 432);
 
-       Stage_Scene_Start();
+        Stage_Scene_Start();
 
         _isIdle = true;
         _isoutlineinit = false;
@@ -58,16 +60,31 @@ public class Stage_Game_Manager : MonoBehaviour
         Invoke("CallScript", 0.0f);
     }
 
+    public void AnserCntPlusOne()
+    {
+        _gAnswerCnt++;
+    }
+
+    public int GetAnserCnt()
+    {
+        return _gAnswerCnt;
+    }
+
+    public void ResetAnserCnt()
+    {
+        _gAnswerCnt = 0;
+    }
+
     void Stage_Scene_Start()
     {
-        //// Stage Scene¿¡¼± °­Ä¡ ¾Ö´Ï¸ŞÀÌ¼Ç »ı¼º
+        //// Stage Sceneï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject GC = Instantiate(GangChi_OBJ, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Gangchi";
         RectTransform GC_rt = GC.GetComponent<RectTransform>();
         GC_rt.localPosition = new Vector3(-265, 100, 0);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
-        // ³ª¸ÓÁö´Â Èæ¹é ÀÌ¹ÌÁö »ı¼º
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         GC = Instantiate(Blackbird_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "BlackBird";
         GC_rt = GC.GetComponent<RectTransform>();
@@ -105,6 +122,7 @@ public class Stage_Game_Manager : MonoBehaviour
 
         GC = Instantiate(Hwang_GRAY, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         GC.name = "Hwang";
+        //GC.GetComponent<Collider>().bounds.size.y = 100;
         GC_rt = GC.GetComponent<RectTransform>();
         GC_rt.localPosition = new Vector3(-438, 239, 0);
         GC_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
@@ -140,7 +158,7 @@ public class Stage_Game_Manager : MonoBehaviour
         RectTransform NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(-265, -20, 0);
         TextMeshProUGUI nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "°­Ä¡";
+        nameText.text = "ê°•ì¹˜";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "SONameTag";
@@ -148,7 +166,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(389, 123, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "¼ÒÂ½»õ";
+        nameText.text = "ì†Œì©ìƒˆ";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "SeagullTag";
@@ -156,7 +174,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(258, 261, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "±ªÀÌ°¥¸Å±â";
+        nameText.text = "ê´­ì´ê°ˆë§¤ê¸°";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "BlackBirdTag";
@@ -164,7 +182,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(224, -49, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "ÈæºñµÑ±â";
+        nameText.text = "í‘ë¹„ë‘˜ê¸°";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "HwangTag";
@@ -172,7 +190,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(716, 220, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "È²·Î";
+        nameText.text = "í™©ë¡œ";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "DdackBirdTag";
@@ -180,7 +198,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(539, -20, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "µü»õ";
+        nameText.text = "ë”±ìƒˆ";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "BlueDomTag";
@@ -188,7 +206,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(817, -15, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "ÆÄ¶ûµ¼";
+        nameText.text = "íŒŒë‘ë”";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "BlueHwangTag";
@@ -196,7 +214,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(408, -199, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "Ã»È²º£µµ¶óÄ¡";
+        nameText.text = "ì²­í™©ë² ë„ë¼ì¹˜";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "BlackDomTag";
@@ -204,7 +222,7 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(380, -392, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "Èæµ¼";
+        nameText.text = "í‘ë”";
 
         NT = Instantiate(NameTag, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         NT.name = "MoonMeatTag";
@@ -212,9 +230,9 @@ public class Stage_Game_Manager : MonoBehaviour
         NT_rt = NT.GetComponent<RectTransform>();
         NT_rt.localPosition = new Vector3(750, -230, 0);
         nameText = NT.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        nameText.text = "´Ş°í±â";
+        nameText.text = "ë‹¬ê³ ê¸°";
 
-        // Stage Scene¿¡¼± ÀÏ´Ü °­Ä¡ ½ºÅ©¸³Æ® ÀÌ¹ÌÁö ÇÏ³ª »ı¼º
+        // Stage Sceneï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject gc_si = Instantiate(Gangchi_script_image, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
         RectTransform gc_si_rt = gc_si.GetComponent<RectTransform>();
         gc_si_rt.localPosition = new Vector3(Script_image_pos.x, Script_image_pos.y, 0);
@@ -234,7 +252,7 @@ public class Stage_Game_Manager : MonoBehaviour
 
         if (State_CurTime >= 20f)
         {
-            myScript.Instance.SetText("³Ê¶ó¸é ÇÒ ¼ö ÀÖ¾î! °è¼Ó µµÀüÇØºÁ!");
+            myScript.Instance.SetText("ë„ˆë¼ë©´ í•  ìˆ˜ ìˆì–´! ê³„ì† ë„ì „í•´ë´!");
         }
 
         if (State_CurTime >= 120f)
@@ -261,27 +279,27 @@ public class Stage_Game_Manager : MonoBehaviour
 
         if (myScript.Instance.GetImpotantWord() == 8)
         {
-            myScript.Instance.SetText("¼ÒÂ½»õ´Â ¿Ã»©¹ÌÀÇ ÇÑ Á¾·ù¾ß");
+            myScript.Instance.SetText("ì†Œì©ìƒˆëŠ” ì˜¬ë¹¼ë¯¸ì˜ í•œ ì¢…ë¥˜ì•¼");
             myScript.Instance.SetImpotantWord(9);
         }
         else if (myScript.Instance.GetImpotantWord() == 9)
         {
-            myScript.Instance.SetText("´Ş°í±â´Â µî Áö´À·¯¹Ì°¡ ±æ°Ô »¸¾î ÀÖ¾î");
+            myScript.Instance.SetText("ë‹¬ê³ ê¸°ëŠ” ë“± ì§€ëŠëŸ¬ë¯¸ê°€ ê¸¸ê²Œ ë»—ì–´ ìˆì–´");
             myScript.Instance.SetImpotantWord(10);
         }
         else if(myScript.Instance.GetImpotantWord() == 10)
         {
-            myScript.Instance.SetText("ÆÄ¶ûµ¼Àº Áö´À·¯¹Ì »öÀÌ ¾Æ¸§´Ù¿ö");
+            myScript.Instance.SetText("íŒŒë‘ë”ì€ ì§€ëŠëŸ¬ë¯¸ ìƒ‰ì´ ì•„ë¦„ë‹¤ì›Œ");
             myScript.Instance.SetImpotantWord(11);
         }
         else if (myScript.Instance.GetImpotantWord() == 11)
         {
-            myScript.Instance.SetText("Ã»È²º£µµ¶óÄ¡´Â ¸öÀÌ ±æÂßÇØ");
+            myScript.Instance.SetText("ì²­í™©ë² ë„ë¼ì¹˜ëŠ” ëª¸ì´ ê¸¸ì­‰í•´");
             myScript.Instance.SetImpotantWord(12);
         }
         else
         {
-            myScript.Instance.SetText("µü»õ´Â ¾öÃ» ±Í¿©¿ö!");
+            myScript.Instance.SetText("ë”±ìƒˆëŠ” ì—„ì²­ ê·€ì—¬ì›Œ!");
             myScript.Instance.SetImpotantWord(8);
         }      
     }

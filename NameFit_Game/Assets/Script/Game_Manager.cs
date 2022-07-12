@@ -115,11 +115,8 @@ public class Game_Manager : MonoBehaviour
                 isup = false;
             if (OutlineWidth <= 0.000f)
                 isup = true;
-            
-            Debug.Log(OutlineWidth);
 
             GC.GetComponent<Image>().material.SetFloat("_OutlineWidth", OutlineWidth);
-            //Debug.Log(Idle_CurTime);
         }
         if (GAME_STATE != STATE.STATE_IDLE)
             IdleSceneBackGround.SetActive(false);
