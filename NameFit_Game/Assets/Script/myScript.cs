@@ -14,6 +14,7 @@ public class myScript : MonoBehaviour
     public static string[] scripts;
 
     private int curIndex;
+    private bool isclear = false;
 
     public static myScript Instance
     {
@@ -101,5 +102,15 @@ public class myScript : MonoBehaviour
     public bool GetWordTerm()
     {
         return _wordterm;
+    }
+
+    public void SetIsClear(bool _ic)
+    {
+        isclear = _ic;
+    }
+
+    public bool GetIsClear()
+    {
+        return isclear;
     }
 }

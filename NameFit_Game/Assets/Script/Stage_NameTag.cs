@@ -238,7 +238,9 @@ public class Stage_NameTag : MonoBehaviour
             {
                 myScript.Instance.SetText("정말 대단해! 열심히 공부했구나?");
                 myScript.Instance.SetImpotantWord(0);
-                Invoke("EndStageScene", 3f);
+                myScript.Instance.SetIsClear(true);
+                _gAnswerCnt = 0;
+               Invoke("EndStageScene", 3f);
             }
 
             gameObject.SetActive(false);

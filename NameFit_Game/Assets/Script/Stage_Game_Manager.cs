@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Stage_Game_Manager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Stage_Game_Manager : MonoBehaviour
     public GameObject Moonmeat_GRAY;
     public GameObject Seagull_GRAY;
     public GameObject SO_GRAY;
+
+    //public Texture m_Mt;
 
     public GameObject NameTag;
 
@@ -210,8 +213,6 @@ public class Stage_Game_Manager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(State_CurTime);
-
         if (myScript.Instance.GetWordTerm() != _isIdle)
         {
             _isIdle = myScript.Instance.GetWordTerm();
@@ -225,8 +226,12 @@ public class Stage_Game_Manager : MonoBehaviour
         if (State_CurTime >= 20f)
         {
             myScript.Instance.SetText("너라면 할 수 있어! 계속 도전해봐!");
-            myScript.Instance.SetWordTerm(false);
-            State_CurTime = 0f;
+        }
+
+        if (State_CurTime >= 120f)
+        {
+            Debug.Log("TIMEOUT_RESET");
+            SceneManager.LoadScene("SampleScene");
         }
 
         if (!myScript.Instance.GetWordTerm())
@@ -240,6 +245,9 @@ public class Stage_Game_Manager : MonoBehaviour
         Invoke("CallScript", 5.0f);
 
         if (!myScript.Instance.GetWordTerm())
+            return;
+
+        if (myScript.Instance.GetIsClear())
             return;
 
         if (myScript.Instance.GetImpotantWord() == 8)
