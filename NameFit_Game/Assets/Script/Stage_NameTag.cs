@@ -23,6 +23,16 @@ public class Stage_NameTag : MonoBehaviour
     public GameObject Seagull_ani;
     public GameObject SO_ani;
 
+    public GameObject BlackBird_outline;
+    public GameObject BlackDom_outline;
+    public GameObject BlueDom_outline;
+    public GameObject BlueHwang_outline;
+    public GameObject DdackBird_outline;
+    public GameObject Hwang_outline;
+    public GameObject MoonMeat_outline;
+    public GameObject Seagull_outline;
+    public GameObject SO_outline;
+
     public GameObject ClearWindow;
 
     RectTransform rectTransform;
@@ -33,10 +43,69 @@ public class Stage_NameTag : MonoBehaviour
     private Vector2 _target_pos;
     private bool _isAnswer;
 
+    private GameObject[] OutlineImage;
+
     private void Awake()
     {
+        OutlineImage = new GameObject[9];
         _bc = GetComponent<BoxCollider2D>();
         rectTransform = GetComponent<RectTransform>();
+
+        // ¹®Á¦Á¡ : ³×ÀÓÅÂ±× ¼ö¸¸Å­ »ý±è ¤Ñ¤Ñ
+        //OutlineImage[0] = Instantiate(BlackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //RectTransform NT_rt = OutlineImage[0].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-286, 390, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
+        //OutlineImage[1] = Instantiate(BlackDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[1].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-100, -254, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+
+        //OutlineImage[2] = Instantiate(BlueDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[2].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-766, -14, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+
+        //OutlineImage[3] = Instantiate(BlueHwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[3].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-336, -84, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+
+        //OutlineImage[4] = Instantiate(DdackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[4].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-63, 350, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
+        //OutlineImage[5] = Instantiate(Hwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[5].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-438, 239, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
+        //OutlineImage[6] = Instantiate(MoonMeat_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[6].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-514, -234, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+
+        //OutlineImage[7] = Instantiate(Seagull_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[7].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-795, 255, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
+        //OutlineImage[8] = Instantiate(SO_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //NT_rt = OutlineImage[8].GetComponent<RectTransform>();
+        //NT_rt.localPosition = new Vector3(-615, 390, 0);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -261,17 +330,325 @@ public class Stage_NameTag : MonoBehaviour
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
+        //if (go_img.name == "BlackBird")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[0])
+        //    {
+        //        OutlineImage[0].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[0] = Instantiate(BlackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[0].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-286, 390, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+
+        //}
+        //else if (go_img.name == "BlackDom")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[1])
+        //    {                
+        //        OutlineImage[1].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[1] = Instantiate(BlackDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[1].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-100, -254, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        //}
+        //else if(go_img.name == "BlueDom")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[2])
+        //    {
+        //        OutlineImage[2].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[2] = Instantiate(BlueDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[2].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-766, -14, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        //}
+        //else if(go_img.name == "BlueHwang")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[3])
+        //    {
+        //        OutlineImage[3].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[3] = Instantiate(BlueHwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[3].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-336, -84, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        //}
+        //else if(go_img.name == "DdackBird")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[4])
+        //    {
+        //        OutlineImage[4].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[4] = Instantiate(DdackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[4].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-63, 350, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        //}
+        //else if(go_img.name == "Hwang")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[5])
+        //    {
+        //        OutlineImage[5].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[5] = Instantiate(Hwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[5].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-438, 239, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        //}
+        //else if(go_img.name == "MoonMeat")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[6])
+        //    {
+        //        OutlineImage[6].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[6] = Instantiate(MoonMeat_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[6].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-514, -234, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        //}
+        //else if(go_img.name == "Seagull")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[7])
+        //    {
+        //        OutlineImage[7].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[7] = Instantiate(Seagull_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[7].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-795, 255, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        //}
+        //else if(go_img.name == "SO")
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //    if (OutlineImage[8])
+        //    {
+        //        OutlineImage[8].SetActive(true);
+        //        return;
+        //    }
+        //    OutlineImage[8] = Instantiate(SO_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        //    RectTransform NT_rt = OutlineImage[8].GetComponent<RectTransform>();
+        //    NT_rt.localPosition = new Vector3(-615, 390, 0);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+        //    NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        //}
+        //else
+        //{
+        //    for (var i = 0; i < 9; ++i)
+        //    {
+        //        if (OutlineImage[i] == null)
+        //            continue;
+        //        OutlineImage[i].SetActive(false);
+        //    }
+        //}
+
+        
+
         if (gameObject.tag == other.gameObject.name)
         {
             _target = other.gameObject;
             _target_pos.x = other.gameObject.GetComponent<RectTransform>().localPosition.x;
             _target_pos.y = other.gameObject.GetComponent<RectTransform>().localPosition.y;
             _isAnswer = true;
+
+            Debug.Log(_target.name);
         }
         else
+        {
             _isAnswer = false;
+        }
+
+        if (other.gameObject.name == "BlackBird")
+        {
+            if (OutlineImage[0])
+                return;
+
+            OutlineImage[0] = Instantiate(BlackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[0].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-286, 390, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        }
+        else if (other.gameObject.name == "BlackDom")
+        {
+            if (OutlineImage[1])
+                return;
+            OutlineImage[1] = Instantiate(BlackDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[1].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-100, -254, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        }
+        else if (other.gameObject.name == "BlueDom")
+        {
+            if (OutlineImage[2])
+                return;
+            OutlineImage[2] = Instantiate(BlueDom_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[2].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-766, -14, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        }
+        else if (other.gameObject.name == "BlueHwang")
+        {
+            if (OutlineImage[3])
+                return;
+            OutlineImage[3] = Instantiate(BlueHwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[3].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-336, -84, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        }
+        else if (other.gameObject.name == "DdackBird")
+        {
+            if (OutlineImage[4])
+                return;
+            OutlineImage[4] = Instantiate(DdackBird_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[4].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-63, 350, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        }
+        else if (other.gameObject.name == "Hwang")
+        {
+            if (OutlineImage[5])
+                return;
+            OutlineImage[5] = Instantiate(Hwang_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[5].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-438, 239, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        }
+        else if (other.gameObject.name == "MoonMeat")
+        {
+            if (OutlineImage[6])
+                return;
+            OutlineImage[6] = Instantiate(MoonMeat_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[6].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-514, -234, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 300);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 300);
+        }
+        else if (other.gameObject.name == "Seagull")
+        {
+            if (OutlineImage[7])
+                return;
+            OutlineImage[7] = Instantiate(Seagull_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[7].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-795, 255, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        }
+        else if (other.gameObject.name == "SO")
+        {
+            if (OutlineImage[8])
+                return;
+            OutlineImage[8] = Instantiate(SO_outline, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+            RectTransform NT_rt = OutlineImage[8].GetComponent<RectTransform>();
+            NT_rt.localPosition = new Vector3(-615, 390, 0);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200);
+            NT_rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (gameObject.tag == other.gameObject.name)
+        {
+            _isAnswer = false;
+            Debug.Log("¶³¾îÁü");
+        }
+
+        if (other.gameObject.name == "BlackBird")
+            Destroy(OutlineImage[0]);
+        if (other.gameObject.name == "BlackDom")
+            Destroy(OutlineImage[1]);
+        if (other.gameObject.name == "BlueDom")
+            Destroy(OutlineImage[2]);
+        if (other.gameObject.name == "BlueHwang")
+            Destroy(OutlineImage[3]);
+        if (other.gameObject.name == "DdackBird")
+            Destroy(OutlineImage[4]);
+        if (other.gameObject.name == "Hwang")
+            Destroy(OutlineImage[5]);
+        if (other.gameObject.name == "MoonMeat")
+            Destroy(OutlineImage[6]);
+        if (other.gameObject.name == "Seagull")
+            Destroy(OutlineImage[7]);
+        if (other.gameObject.name == "SO")
+            Destroy(OutlineImage[8]);
     }
 
     private void EndStageScene()

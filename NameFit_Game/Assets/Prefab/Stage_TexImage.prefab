@@ -149,6 +149,15 @@ MonoBehaviour:
   MoonMeat_ani: {fileID: 2816128429279107728, guid: 3f03e8416ed21424c94a4f688cb84b2c, type: 3}
   Seagull_ani: {fileID: 101868280554281578, guid: 5d4e361804e79e14eb3321cd2f9ff18f, type: 3}
   SO_ani: {fileID: 5719500544762060906, guid: 50575db1eff816242a32ba9a33550a4d, type: 3}
+  BlackBird_outline: {fileID: 3897112078948415083, guid: 0f58bb5cd5e73ba4eafef8a662bf89fd, type: 3}
+  BlackDom_outline: {fileID: 729017216251802169, guid: 37d08f0f34d4f3c40976f5cf87d3e53c, type: 3}
+  BlueDom_outline: {fileID: 1243859773087331146, guid: fb0bd0eeea5c63442b71384008959c0f, type: 3}
+  BlueHwang_outline: {fileID: 3714373396439953834, guid: ce4cfdaf4eb57244f860aa61b576c51a, type: 3}
+  DdackBird_outline: {fileID: 9172955254395072517, guid: 488665a3933ae2142bc3b26fb1aae840, type: 3}
+  Hwang_outline: {fileID: 5002368446272703385, guid: f29b38def33d1a042b2fc56198e4188f, type: 3}
+  MoonMeat_outline: {fileID: 6486278192518943889, guid: 3067da5ce25044946b15219a499c4844, type: 3}
+  Seagull_outline: {fileID: 7890568320019136150, guid: 55c8a6cf6d8fc8943ae8ab38d9f7e718, type: 3}
+  SO_outline: {fileID: 3952487981257759780, guid: e26356ab63463d141a279ace2a6b1600, type: 3}
   ClearWindow: {fileID: 615996414449767010, guid: 158a172bd7e531c4ca37f6a2b952494f, type: 3}
 --- !u!1 &5909765415458473453
 GameObject:

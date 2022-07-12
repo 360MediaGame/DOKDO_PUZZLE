@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 76ff68f880a0d7a428caeb7693756251, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -91,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98553395722a0742bfbf96f143eca45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nameTagPrefab: {fileID: 3797761462820267209, guid: 8efd0113423d7354dabcd2d69b86ecc8, type: 3}
-  _Effect: {fileID: 5461866448617344143, guid: 420841f3413062c4cbd5d1b7c30c870b, type: 3}
 --- !u!61 &5406535584882435826
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class Stage_Game_Manager : MonoBehaviour
     public GameObject Seagull_GRAY;
     public GameObject SO_GRAY;
 
+
+
     //public Texture m_Mt;
 
     public GameObject NameTag;
@@ -31,6 +33,8 @@ public class Stage_Game_Manager : MonoBehaviour
     private Vector2 Script_image_pos;
 
     private bool _isIdle;
+
+    private bool _isoutlineinit;
 
     public static Stage_Game_Manager Instance
     {
@@ -47,6 +51,7 @@ public class Stage_Game_Manager : MonoBehaviour
        Stage_Scene_Start();
 
         _isIdle = true;
+        _isoutlineinit = false;
 
         myScript.Instance.SetWordTerm(true);
         Invoke("CallScript", 0.0f);
@@ -281,5 +286,15 @@ public class Stage_Game_Manager : MonoBehaviour
     {
         myScript.Instance.SetWordTerm(true);
         //CallScript();
+    }
+
+    public void SetOutLineInit(bool _oli)
+    {
+        _isoutlineinit = _oli;
+    }
+
+    public bool GetOutLineInit()
+    {
+        return _isoutlineinit;
     }
 }
