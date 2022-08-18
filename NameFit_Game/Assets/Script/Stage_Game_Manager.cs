@@ -49,7 +49,7 @@ public class Stage_Game_Manager : MonoBehaviour
 
     void Start()
     {
-        Script_image_pos = new Vector2(176, 432);
+        Script_image_pos = new Vector2(179, 413);
 
         Stage_Scene_Start();
 
