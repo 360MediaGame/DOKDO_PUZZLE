@@ -252,6 +252,7 @@ public class Stage_Game_Manager : MonoBehaviour
 
         if (State_CurTime >= 20f)
         {
+            myScript.Instance._isComa = true;
             myScript.Instance.SetText("너라면 할 수 있어! 계속 도전해봐!");
         }
 
@@ -270,6 +271,10 @@ public class Stage_Game_Manager : MonoBehaviour
     void CallScript()
     {
         Invoke("CallScript", 5.0f);
+
+        if (myScript.Instance._isComa)
+            return;
+
 
         if (!myScript.Instance.GetWordTerm())
             return;

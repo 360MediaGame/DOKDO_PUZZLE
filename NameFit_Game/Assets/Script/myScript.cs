@@ -11,6 +11,9 @@ public class myScript : MonoBehaviour
 
     public int _ImpotantWord;
     public bool _wordterm = true;
+
+    public bool _isComa = false;
+
     public static string[] scripts;
 
     private int curIndex;

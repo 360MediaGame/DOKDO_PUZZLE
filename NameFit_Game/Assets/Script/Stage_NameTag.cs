@@ -238,10 +238,9 @@ public class Stage_NameTag : MonoBehaviour
                 ani_obj_rt.localPosition = new Vector3(_target_pos.x, _target_pos.y, 0);
             }
 
-
+            myScript.Instance._isComa = false;
             myScript.Instance.SetText("ÈÇ¸¢ÇØ! ´ÙÀ½ µ¶µµ Ä£±¸µéµµ ¸ÂÃß¾î º¼±î?");
             myScript.Instance.SetWordTerm(false);
-
 
             AnswerManager.Instance.AnserCntPlusOne();
             Debug.Log(AnswerManager.Instance.GetAnserCnt());
@@ -392,7 +391,6 @@ public class Stage_NameTag : MonoBehaviour
         if (gameObject.tag == other.gameObject.name)
         {
             _isAnswer = false;
-            Debug.Log("¶³¾îÁü");
         }
 
         if (other.gameObject.name == "BlackBird")
