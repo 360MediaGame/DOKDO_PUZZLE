@@ -338,9 +338,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 44610000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 40ecffffccf9ffff2afbffff80610000
+      m_ExpandedIDs: c6ecffff2afbffffa85e000064810000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -611,9 +611,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 342.44263, y: 229.50163, z: 4.616766}
+    m_Target: {x: 811.631, y: 545.791, z: 1.8962069}
     speed: 2
-    m_Value: {x: 342.44263, y: 229.50163, z: 4.616766}
+    m_Value: {x: 811.631, y: 545.791, z: 1.8962069}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -664,9 +664,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 218.11678
+    m_Target: 556.4922
     speed: 2
-    m_Value: 218.11678
+    m_Value: 556.4922
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -967,22 +967,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefab
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\NH\\Desktop\\\uAE40\uC6B0\uCC2C_\uD55C\uAD6D\uACF5\uD559\uB300\uD559\uAD50_\uD604\uC7A5\uC2E4\uC2B5\\NameFit\\DOKDO_PUZZLE\\NameFit_Game"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 51}
-    m_SelectedIDs: f4600000
-    m_LastClickedID: 24820
-    m_ExpandedIDs: 00000000dc600000f260000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: f2600000
+    m_LastClickedID: 24818
+    m_ExpandedIDs: 00000000dc60000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
