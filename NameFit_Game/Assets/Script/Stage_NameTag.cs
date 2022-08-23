@@ -249,7 +249,7 @@ public class Stage_NameTag : MonoBehaviour
             GameObject Effect = Instantiate(_Effect, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
             RectTransform Effect_rt = Effect.GetComponent<RectTransform>();
             Effect_rt.localPosition = new Vector3(_target_pos.x, _target_pos.y, 0);
-
+            Destroy(Effect, 1f);
             if (AnswerManager.Instance.GetAnserCnt() >= 9)
             {
                 myScript.Instance.SetText("정말 대단해! 열심히 공부했구나?");
