@@ -11,6 +11,11 @@ public class Stage_NameTag : MonoBehaviour
 {
     public static int _gAnswerCnt = 0;
 
+    public AudioClip AudioClick;
+    public AudioClip AudioPass;
+    public AudioClip AudioFail;
+    AudioSource audioSource;
+
     public GameObject _Effect;
 
     public GameObject BlackBird_ani;
@@ -52,10 +57,15 @@ public class Stage_NameTag : MonoBehaviour
         OutlineImage = new GameObject[9];
         _bc = GetComponent<BoxCollider2D>();
         rectTransform = GetComponent<RectTransform>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        audioSource.clip = AudioClick;
+        audioSource.Play();
+
         _start_pos.x = transform.position.x;
         _start_pos.y = transform.position.y;
     }
@@ -75,6 +85,9 @@ public class Stage_NameTag : MonoBehaviour
 
         if (_isAnswer)
         {
+            audioSource.clip = AudioPass;
+            audioSource.Play();
+
             if (_target.name == "BlackBird")
             {
                 // FixNameTag
@@ -263,6 +276,9 @@ public class Stage_NameTag : MonoBehaviour
         }
         else
         {
+            audioSource.clip = AudioFail;
+            audioSource.Play();
+
             myScript.Instance.SetText("그 친구의 이름이 아니야, 다시 도전해보자!");
             myScript.Instance.SetWordTerm(false);
         }

@@ -9,6 +9,11 @@ using UnityEngine.SceneManagement;
 public class NameTag : MonoBehaviour
     , IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public AudioClip AudioClick;
+    public AudioClip AudioPass;
+    public AudioClip AudioFail;
+    AudioSource audioSource;
+
     public GameObject _Effect;
     public GameObject Gangchi_ani;
 
@@ -24,11 +29,15 @@ public class NameTag : MonoBehaviour
     {
         _bc = GetComponent<BoxCollider2D>();
         rectTransform = GetComponent<RectTransform>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
     public void OnBeginDrag(PointerEventData eventData)
-    { 
+    {
+        audioSource.clip = AudioClick;
+        audioSource.Play();
+
         _start_pos.x = transform.position.x;
         _start_pos.y = transform.position.y;
     }
@@ -48,8 +57,10 @@ public class NameTag : MonoBehaviour
       
         if (_isAnswer)
         {
+            audioSource.clip = AudioPass;
+            audioSource.Play();
             if (_target.name == "Gangchi")
-            {       
+            {
                 // FixNameTag
                 GameObject NT = Instantiate(gameObject, gameObject.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
                 NT.tag = "FixNameTag";
@@ -76,6 +87,11 @@ public class NameTag : MonoBehaviour
             Invoke("EnterStageScene", 0);
 
             gameObject.SetActive(false);
+        }
+        else
+        {
+            audioSource.clip = AudioFail;
+            audioSource.Play();
         }
         
     }
