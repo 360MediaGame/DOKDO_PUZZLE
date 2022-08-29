@@ -84,7 +84,7 @@ public class NameTag : MonoBehaviour
             RectTransform Effect_rt = Effect.GetComponent<RectTransform>();
             Effect_rt.localPosition = new Vector3(_target_pos.x, _target_pos.y, 0);
 
-            Invoke("EnterStageScene", 0);
+            Invoke("EnterStageScene", 1f);
 
             gameObject.SetActive(false);
         }

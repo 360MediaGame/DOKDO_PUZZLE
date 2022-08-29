@@ -35,6 +35,7 @@ public class Game_Manager : MonoBehaviour
     GameObject GC;
     float OutlineWidth;
     bool isup;
+
     public static Game_Manager Instance
     {
         get
